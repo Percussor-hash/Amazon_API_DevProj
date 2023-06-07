@@ -1,0 +1,4 @@
+npm init
+npm install express
+npm install dotenv // to get .env file
+http://localhost:8080/search?query=Product 1 //query to use in web browser to get product
