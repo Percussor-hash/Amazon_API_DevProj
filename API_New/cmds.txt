@@ -6,7 +6,6 @@ npm install dotenv // to get .env file
 
 //to start running
 node index.js //has code for Amazon.in
-node old.js //has code for Amazon.com
 
 For GET:
 http://localhost:5000/search?title=<ProductName>&maxPages=<int>//query to get product
