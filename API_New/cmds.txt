@@ -1,0 +1,22 @@
+npm init
+npm install express
+npm install puppeteer@1.20.0 //to lower the version as not Newer version of NodeJs didn't support
+npm install body-parser
+npm install dotenv // to get .env file
+
+//to start running
+node index.js //has code for Amazon.in
+node old.js //has code for Amazon.com
+
+For GET:
+http://localhost:5000/search?title=<ProductName>&maxPages=<int>//query to get product
+
+For POST:
+{
+  "title": "mysearch",
+  "maxPages": 10
+}
+
+
+
+
