@@ -8,7 +8,7 @@ npm install dotenv // to get .env file
 node index.js //has code for Amazon.in
 node old.js //has code for Amazon.com
 
-http://localhost:5000/search?title=<Product_Name> //query to get product from amazon.in
-http://localhost:8080/search?title=<Product_Name> //query to get product from amazon.com
+http://localhost:5000/search?title=<Product_Name> //query to get product 
+
 
 
