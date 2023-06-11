@@ -12,6 +12,8 @@ const RETRY_DELAY = 10000; // Delay between retries in milliseconds
 
 let allProducts = []; // Array to store products from all pages
 
+
+//GET
 app.get('/search', async (req, res) => {
   let retryCount = 0;
   let currentPage = 1;
@@ -66,6 +68,8 @@ app.get('/search', async (req, res) => {
   res.json(allProducts);
 });
 
+
+//POST
 app.post('/search', async (req, res) => {
   let retryCount = 0;
   let currentPage = 1;
