@@ -7,7 +7,7 @@ const app = express();
 const PORT = process.env.PORT;
 app.use(bodyParser.json());
 
-const MAX_RETRIES = 3; // Maximum number of retry attempts
+//const MAX_RETRIES = 3; // Maximum number of retry attempts
 const RETRY_DELAY = 10000; // Delay between retries in milliseconds
 
 let allProducts = []; // Array to store products from all pages
