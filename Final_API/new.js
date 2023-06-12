@@ -91,7 +91,7 @@ app.get('/search', async (req, res) => {
       await delay(RETRY_DELAY); // Wait before retrying
     }
   }
-
+  console.log(`Scraped all pages requested`);
   res.json(allProducts);
 }});
 
@@ -147,7 +147,7 @@ app.post('/search', async (req, res) => {
       });
 
       allProducts = allProducts.concat(products);
-
+      
       await browser.close();
 
       currentPage++;
@@ -157,7 +157,7 @@ app.post('/search', async (req, res) => {
       await delay(RETRY_DELAY); // Wait before retrying
     }
   }
-
+  console.log(`Scraped all pages requested`);
   res.json(allProducts);
 }});
 
