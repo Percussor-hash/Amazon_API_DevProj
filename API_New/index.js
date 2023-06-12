@@ -12,11 +12,39 @@ const RETRY_DELAY = 10000; // Delay between retries in milliseconds
 
 let allProducts = []; // Array to store products from all pages
 
+function isValidSearchQuery(query, pages) {
+  // Remove leading and trailing whitespace
+  query = query.replace(/\s/g, '');
+  
+  // Check if the query is empty
+  if (query.length === 0) {
+    return false;
+  }
+  if (!/^\d+$/.test(pages)) {
+    return false;
+  }
+  // Add additional validation criteria as per your requirements
+  if (!/^[a-zA-Z0-9-_]+$/.test(query)) {
+    return false;
+  }
+  // Return true if the query passes all validation checks
+  return true;
+}
+
 app.get('/search', async (req, res) => {
   let retryCount = 0;
   let currentPage = 1;
 
-  const maxPages = parseInt(req.query.maxPages) || 20; // Maximum number of pages to scrape, defaulting to 20 if not provided
+  const searchQuery = req.query.title;
+  const pages = req.query.maxPages;
+  if (!isValidSearchQuery(searchQuery, pages)) {
+    console.log("Invalid search query.");
+    res.send("Invalid Input query or no.of pages,\n Try again.")
+  } else {
+    console.log("Search query is valid.");
+  
+
+  const maxPages = pages || 20; // Maximum number of pages to scrape, defaulting to 20 if not provided
 
   while (currentPage <= maxPages) {
     try {
@@ -24,7 +52,7 @@ app.get('/search', async (req, res) => {
       const page = await browser.newPage();
 
       await page.goto('https://www.amazon.in/');
-      await page.type('#twotabsearchtextbox', req.query.title);
+      await page.type('#twotabsearchtextbox', searchQuery);
       await page.click('#nav-search-submit-button');
       await page.waitForNavigation();
 
@@ -62,13 +90,22 @@ app.get('/search', async (req, res) => {
   }
 
   res.json(allProducts);
-});
+}});
 
 app.post('/search', async (req, res) => {
   let retryCount = 0;
   let currentPage = 1;
 
-  const maxPages = req.body.maxPages || 20; // Maximum number of pages to scrape, defaulting to 20 if not provided
+  const searchQuery = req.body.title;
+  const pages = req.body.maxPages;
+  if (!isValidSearchQuery(searchQuery, pages)) {
+    console.log("Invalid search query.");
+    res.send("Invalid Input query or no.of pages,\n Try again.")
+  } else {
+    console.log("Search query is valid.");
+  
+
+  const maxPages = pages || 20; // Maximum number of pages to scrape, defaulting to 20 if not provided
 
   while (currentPage <= maxPages) {
     try {
@@ -76,7 +113,7 @@ app.post('/search', async (req, res) => {
       const page = await browser.newPage();
 
       await page.goto('https://www.amazon.in/');
-      await page.type('#twotabsearchtextbox', req.body.title);
+      await page.type('#twotabsearchtextbox', searchQuery);
       await page.click('#nav-search-submit-button');
       await page.waitForNavigation();
 
@@ -114,7 +151,7 @@ app.post('/search', async (req, res) => {
   }
 
   res.json(allProducts);
-});
+}});
 
 function delay(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
