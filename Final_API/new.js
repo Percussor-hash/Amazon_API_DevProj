@@ -2,15 +2,21 @@ const express = require('express');
 const puppeteer = require('puppeteer');
 require('dotenv').config();
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 const app = express();
 const PORT = process.env.PORT;
 app.use(bodyParser.json());
 
-//const MAX_RETRIES = 3; // Maximum number of retry attempts
+const MAX_RETRIES = 3; // Maximum number of retry attempts
 const RETRY_DELAY = 10000; // Delay between retries in milliseconds
 
 let allProducts = []; // Array to store products from all pages
+
+app.use(cors()); // Add parentheses to invoke the cors middleware
+
+//const MAX_RETRIES = 3; // Maximum number of retry attempts
+
 
 
 function isValidSearchQuery(query, pages) {
