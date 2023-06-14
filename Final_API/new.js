@@ -28,7 +28,9 @@ function isValidSearchQuery(query, pages) {
     return false;
   }
   if (!/^\d+$/.test(pages)) {
-    return false;
+    if(pages != ""){
+      return false;
+    }
   }
   // Add additional validation criteria as per your requirements
   if (!/^[a-zA-Z0-9-_]+$/.test(query)) {
