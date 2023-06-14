@@ -45,7 +45,7 @@ app.get('/search', async (req, res) => {
 
   const searchQuery = req.query.title;
   const pages = req.query.maxPages;
-  if (!isValidSearchQuery(searchQuery, pages)) {
+  if (!isValidSearchQuery(searchQuery)) {
     console.log("Invalid search query.");
     res.send("Invalid Input query or no.of pages,\n Try again.")
   } else {
@@ -111,14 +111,15 @@ app.post('/search', async (req, res) => {
 
   const searchQuery = req.body.title;
   const pages = req.body.maxPages;
-  if (!isValidSearchQuery(searchQuery, pages)) {
+  if (!isValidSearchQuery(searchQuery)) {
     console.log("Invalid search query.");
     res.send("Invalid Input query or no.of pages,\n Try again.")
   } else {
     console.log("Search query is valid.");
   
 
-  const maxPages = pages || 20; // Maximum number of pages to scrape, defaulting to 20 if not provided
+    const maxPages = parseInt(pages, 10) || 20;
+    // Maximum number of pages to scrape, defaulting to 20 if not provided
 
   
   while (currentPage <= maxPages) {
