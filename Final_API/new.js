@@ -118,7 +118,7 @@ app.post('/search', async (req, res) => {
     console.log("Search query is valid.");
   
 
-  const maxPages = pages || 20; // Maximum number of pages to scrape, defaulting to 20 if not provided
+  const maxPages = parseInt(pages) || 20; // Maximum number of pages to scrape, defaulting to 20 if not provided
 
   
   while (currentPage <= maxPages) {
