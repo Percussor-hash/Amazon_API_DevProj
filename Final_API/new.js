@@ -19,26 +19,24 @@ app.use(cors()); // Add parentheses to invoke the cors middleware
 
 
 
-function isValidSearchQuery(query, pages) {
+function isValidSearchQuery(query) {
   // Remove leading and trailing whitespace
   query = query.replace(/\s/g, '');
-  
+
   // Check if the query is empty
   if (query.length === 0) {
     return false;
   }
-  if (!/^\d+$/.test(pages)) {
-    if(pages != ""){
-      return false;
-    }
-  }
+
   // Add additional validation criteria as per your requirements
   if (!/^[a-zA-Z0-9-_]+$/.test(query)) {
     return false;
   }
+
   // Return true if the query passes all validation checks
   return true;
 }
+
 
 //GET
 app.get('/search', async (req, res) => {
@@ -47,13 +45,15 @@ app.get('/search', async (req, res) => {
 
   const searchQuery = req.query.title;
   const pages = req.query.maxPages;
-  if (!isValidSearchQuery(searchQuery, pages)) {
+  if (!isValidSearchQuery(searchQuery)) {
     console.log("Invalid search query.");
     res.send("Invalid Input query or no.of pages,\n Try again.")
   } else {
     console.log("Search query is valid.");
 
-  const maxPages = parseInt(pages) || 20; // Maximum number of pages to scrape, defaulting to 20 if not provided
+    const maxPages = parseInt(pages) || 20;
+   // Maximum number of pages to scrape, defaulting to 20 if not provided
+  
 
   while (currentPage <= maxPages) {
     try {
@@ -111,14 +111,15 @@ app.post('/search', async (req, res) => {
 
   const searchQuery = req.body.title;
   const pages = req.body.maxPages;
-  if (!isValidSearchQuery(searchQuery, pages)) {
+  if (!isValidSearchQuery(searchQuery)) {
     console.log("Invalid search query.");
     res.send("Invalid Input query or no.of pages,\n Try again.")
   } else {
     console.log("Search query is valid.");
   
 
-  const maxPages = parseInt(pages) || 20; // Maximum number of pages to scrape, defaulting to 20 if not provided
+    const maxPages = parseInt(pages, 10) || 20;
+    // Maximum number of pages to scrape, defaulting to 20 if not provided
 
   
   while (currentPage <= maxPages) {

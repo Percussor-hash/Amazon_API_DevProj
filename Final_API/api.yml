@@ -1,6 +1,6 @@
 openapi: 3.0.2
 info:
-  title: Product Search API
+  title: Amazon Product Search API
   version: '1.0'
 servers:
   - url: http://localhost:5000 # Update with your server URL
