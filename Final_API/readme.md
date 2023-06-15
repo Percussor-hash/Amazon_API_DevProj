@@ -1,1 +1,1 @@
-The Final file to be used for documentaion.<br>Done for amazon.com
+The Final file to be used for documentation.<br>Done for amazon.com
