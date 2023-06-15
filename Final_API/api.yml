@@ -1,9 +1,9 @@
 openapi: 3.0.2
 info:
-  title: Amazon Product Search API
+  title: Product Search API
   version: '1.0'
 servers:
-  - url: http://localhost:5000 # Update with your server URL
+  - url: http://localhost:5000 
 paths:
   /search:
     get:
@@ -54,7 +54,7 @@ paths:
                   type: string
                   description: The search query for products
                 maxPages:
-                  type: string
+                  type: integer
                   minimum: 1
                   default: 20
                   description: The maximum number of pages to scrape (default 20)
@@ -77,3 +77,12 @@ paths:
                     image:
                       type: string
                       description: The URL of the product image
+    delete:
+      summary: Clear search results
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string
