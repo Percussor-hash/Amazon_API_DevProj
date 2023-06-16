@@ -1,4 +1,4 @@
-# Amazon_API
+## Amazon_API
 These folders contain different ways of implementing an API for extracting information about Amazon Products.
 <br>The data is extracted in realtime from the Amazon website.
 <br>Tools used: NodeJS
