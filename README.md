@@ -12,9 +12,9 @@ These folders contain different ways of implementing an API for extracting infor
 ## Commands to run
 
 ### Install all the node packages required
-```cd Final_API```
-```nom init``` (keep all the values to default.)
-```npm install```
+```cd Final_API
+```nom init (keep all the values to default.)
+```npm install
 
 ### Run the API
 ```node new.js```
