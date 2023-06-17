@@ -115,7 +115,7 @@ The API is documented using the Swagger (OpenAPI) specification, providing a com
 To access the Swagger documentation, follow these steps:
 
 1. Start the application on your local machine.
-2. Open your web browser and navigate to the following URL: `http://localhost:5000/search`
+2. Go to "https://editor.swagger.io/" website and paste api.yaml code in the editor. 
 
 The Swagger UI interface will be displayed, presenting a user-friendly view of the API documentation. You can interactively test the endpoints, view example requests and responses, and understand the expected data formats.
 
