@@ -19,7 +19,7 @@ Before running the project, make sure you have the following:
 
 ## Installation and Setup
 
-1. Clone the repository: `git clone https://github.com/Percussor-hash/Amazon_API.git`
+1. Clone the repository: `git clone https://github.com/Percussor-hash/Amazon_API_DevProj.git`
 2. Install the dependencies: `npm install`
 3. Configure the necessary environment variables (such as `PORT` for the server).
 
@@ -40,7 +40,7 @@ Before running the project, make sure you have the following:
 * ```npm install```
 
 ### Run the API
-```node new.js```
+```node <file_name>.js```
 
 ## The URL link to Postman and ThunderClinet
 ### choose either one
@@ -128,9 +128,13 @@ Feel free to explore the Swagger documentation and leverage it to understand the
 
 ![GET Request](Images/get.png)
 
+![GET Output](Images/get_output.png)
+
 The above image shows an example of a GET request made to the API. It demonstrates how to retrieve product data by providing a search query.
 
 ![POST Request](Images/post.png)
+
+![POST Output](Images/post_output.png)
 
 The above image illustrates an example of a POST request made to the API. It showcases how to submit a search query and receive product data in the response.
 
