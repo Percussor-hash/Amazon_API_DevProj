@@ -1,5 +1,5 @@
 # Amazon API
-jojoj
+
 The Amazon API project is a web application that allows users to search for products on Amazon and retrieve product information programmatically. It utilizes the Puppeteer library for web scraping, Express.js for building the API endpoints, and Swagger for API documentation.
 
 ## Features
